@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{771B3D4B-CBEE-4A66-A2FD-3D39348D29CE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Weapsy.Blog.Domain</RootNamespace>
+    <AssemblyName>Weapsy.Blog.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AggregateRoot.cs" />
+    <Compile Include="Blog\Events\BlogCreatedEvent.cs" />
+    <Compile Include="Blog\Events\BlogTitleChangedEvent.cs" />
+    <Compile Include="Blog\Exceptions\BlogException.cs" />
+    <Compile Include="Blog\IBlogRepository.cs" />
+    <Compile Include="Category\Category.cs" />
+    <Compile Include="Category\Events\CategoryCreatedEvent.cs" />
+    <Compile Include="Category\Events\CategoryTitleChangedEvent.cs" />
+    <Compile Include="Category\Exceptions\CategoryException.cs" />
+    <Compile Include="Category\ICategoryRepository.cs" />
+    <Compile Include="Comment\Comment.cs" />
+    <Compile Include="Comment\Events\CommentApprovedEvent.cs" />
+    <Compile Include="Comment\Events\CommentCreatedEvent.cs" />
+    <Compile Include="Comment\Events\CommentDeletedEvent.cs" />
+    <Compile Include="Comment\Events\CommentDisapprovedEvent.cs" />
+    <Compile Include="Comment\Events\CommentRestoredEvent.cs" />
+    <Compile Include="Comment\Events\CommentUpdatedEvent.cs" />
+    <Compile Include="Comment\Exceptions\CommentAlreadyApprovedException.cs" />
+    <Compile Include="Comment\Exceptions\CommentNotDeletedException.cs" />
+    <Compile Include="Comment\Exceptions\CommentNotApprovedException.cs" />
+    <Compile Include="Comment\Exceptions\CommentAlreadyDeletedException.cs" />
+    <Compile Include="Comment\Exceptions\CommentDeletedException.cs" />
+    <Compile Include="Comment\Exceptions\CommentException.cs" />
+    <Compile Include="Comment\ICommentRepository.cs" />
+    <Compile Include="DomainEvents.cs" />
+    <Compile Include="IAggregateRoot.cs" />
+    <Compile Include="IDomainEvent.cs" />
+    <Compile Include="IEventHandler.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Posts\Exceptions\PostAlreadyDeletedException.cs" />
+    <Compile Include="Posts\Exceptions\PostNotCreatedException.cs" />
+    <Compile Include="Posts\Exceptions\PostNotDeletedException.cs" />
+    <Compile Include="Posts\Exceptions\PostNotPublishedException.cs" />
+    <Compile Include="Posts\Exceptions\PostAlreadyPublishedException.cs" />
+    <Compile Include="Posts\Exceptions\PostDeletedException.cs" />
+    <Compile Include="Posts\IPostRepository.cs" />
+    <Compile Include="Posts\Events\PostCreatedEvent.cs" />
+    <Compile Include="Posts\Events\PostDeletedEvent.cs" />
+    <Compile Include="Posts\Exceptions\PostException.cs" />
+    <Compile Include="Blog\Blog.cs" />
+    <Compile Include="Posts\Post.cs" />
+    <Compile Include="Posts\Events\PostPublishedEvent.cs" />
+    <Compile Include="Posts\Events\PostRestoredEvent.cs" />
+    <Compile Include="Posts\Events\PostUnpublishedEvent.cs" />
+    <Compile Include="Posts\Events\PostUpdatedEvent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueObject.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

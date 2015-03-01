@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F2309CBE-4A5A-437E-A8B3-00F96F2B7EC2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Weapsy.Blog.Commands.Tests</RootNamespace>
+    <AssemblyName>Weapsy.Blog.Commands.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=5.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.5.5.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Handlers\AddCommentCommandHandlerTests.cs" />
+    <Compile Include="Handlers\CreateCategoryCommandHandlerTests.cs" />
+    <Compile Include="Handlers\CreateBlogCommandHandlerTests.cs" />
+    <Compile Include="Handlers\CreatePostCommandHandlerTests.cs" />
+    <Compile Include="Handlers\RestorePostCommandHandlerTests.cs" />
+    <Compile Include="Handlers\PublishPostCommandHandlerTests.cs" />
+    <Compile Include="Handlers\DeletePostCommandHandlerTests.cs" />
+    <Compile Include="Handlers\DeleteCommentCommandHandlerTests.cs" />
+    <Compile Include="Handlers\ApproveCommentCommandHandlerTests.cs" />
+    <Compile Include="Validators\AddCommentCommandValidatorTests.cs" />
+    <Compile Include="Validators\CreatePostCommandValidatorTests.cs" />
+    <Compile Include="Validators\CreateCategoryCommandValidatorTests.cs" />
+    <Compile Include="Validators\CreateBlogCommandValidatorTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Weapsy.Blog.Commands\Weapsy.Blog.Commands.csproj">
+      <Project>{faf2d7e5-8475-4ee1-b5e1-9ccd87de849e}</Project>
+      <Name>Weapsy.Blog.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Weapsy.Blog.Domain.Persistence.EF\Weapsy.Blog.Domain.Persistence.EF.csproj">
+      <Project>{d5f32926-3606-4e27-bf7a-77d5d78ecc5a}</Project>
+      <Name>Weapsy.Blog.Domain.Persistence.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Weapsy.Blog.Domain\Weapsy.Blog.Domain.csproj">
+      <Project>{771B3D4B-CBEE-4A66-A2FD-3D39348D29CE}</Project>
+      <Name>Weapsy.Blog.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

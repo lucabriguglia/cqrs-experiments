@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FAF2D7E5-8475-4EE1-B5E1-9CCD87DE849E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Weapsy.Blog.Commands</RootNamespace>
+    <AssemblyName>Weapsy.Blog.Commands</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.5.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\ICommand.cs" />
+    <Compile Include="CreateCategoryCommand.cs" />
+    <Compile Include="CreateBlogCommand.cs" />
+    <Compile Include="AddCommentCommand.cs" />
+    <Compile Include="DeleteCommentCommand.cs" />
+    <Compile Include="ApproveCommentCommand.cs" />
+    <Compile Include="Handlers\AddCommentCommandHandler.cs" />
+    <Compile Include="Handlers\ApproveCommentCommandHandler.cs" />
+    <Compile Include="Handlers\Contracts\ICommandHandler.cs" />
+    <Compile Include="Handlers\CreateBlogCommandHandler.cs" />
+    <Compile Include="Handlers\CreateCategoryCommandHandler.cs" />
+    <Compile Include="Handlers\CreatePostCommandHandler.cs" />
+    <Compile Include="Handlers\DeleteCommentCommandHandler.cs" />
+    <Compile Include="Handlers\DeletePostCommandHandler.cs" />
+    <Compile Include="Handlers\PublishPostCommandHandler.cs" />
+    <Compile Include="Handlers\RestorePostCommandHandler.cs" />
+    <Compile Include="Validators\CreateCategoryCommandValidator.cs" />
+    <Compile Include="Validators\CreateBlogCommandValidator.cs" />
+    <Compile Include="Validators\AddCommentCommandValidator.cs" />
+    <Compile Include="Validators\CreatePostCommandValidator.cs" />
+    <Compile Include="RestorePostCommand.cs" />
+    <Compile Include="PublishPostCommand.cs" />
+    <Compile Include="DeletePostCommand.cs" />
+    <Compile Include="CreatePostCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Weapsy.Blog.Domain\Weapsy.Blog.Domain.csproj">
+      <Project>{771b3d4b-cbee-4a66-a2fd-3d39348d29ce}</Project>
+      <Name>Weapsy.Blog.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
