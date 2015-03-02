@@ -8,3 +8,5 @@
 - Kendo UI
 - Web API
 - ASP.NET Identity
+
+(early stages of the project)
