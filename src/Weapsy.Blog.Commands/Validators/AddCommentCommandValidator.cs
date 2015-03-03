@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
-using Weapsy.Blog.Domain.Posts;
+using Weapsy.Blog.Domain.Post;
 
 namespace Weapsy.Blog.Commands.Validators
 {

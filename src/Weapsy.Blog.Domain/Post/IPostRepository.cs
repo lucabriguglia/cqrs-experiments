@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Weapsy.Blog.Domain.Posts
+namespace Weapsy.Blog.Domain.Post
 {
 	public interface IPostRepository : IRepository<Post>
 	{

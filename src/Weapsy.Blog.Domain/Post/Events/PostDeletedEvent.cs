@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Weapsy.Blog.Domain.Posts.Events
+namespace Weapsy.Blog.Domain.Post.Events
 {
     public class PostDeletedEvent : IDomainEvent
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Weapsy.Blog.Domain.Posts.Events;
-using Weapsy.Blog.Domain.Posts.Exceptions;
+using Weapsy.Blog.Domain.Post.Events;
+using Weapsy.Blog.Domain.Post.Exceptions;
 
-namespace Weapsy.Blog.Domain.Posts
+namespace Weapsy.Blog.Domain.Post
 {
     public class Post : AggregateRoot
     {
@@ -84,7 +84,7 @@ namespace Weapsy.Blog.Domain.Posts
 
             if (!Published)
             {
-                throw new PostNotPublishedException("The Post is already not published.");
+                throw new PostNotPublishedException("The Post is not published.");
             }
 
             Published = false;

@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentValidation;
 using Weapsy.Blog.Commands.Handlers.Contracts;
-using Weapsy.Blog.Domain.Posts;
+using Weapsy.Blog.Domain.Post;
 
 namespace Weapsy.Blog.Commands.Handlers
 {

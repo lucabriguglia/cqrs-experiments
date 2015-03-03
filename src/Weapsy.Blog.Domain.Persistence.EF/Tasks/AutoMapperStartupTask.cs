@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Weapsy.Blog.Domain.Persistence.EF.Models;
-using Weapsy.Blog.Domain.Posts;
 using Weapsy.Blog.Infrastructure;
 
 namespace Weapsy.Blog.Domain.Persistence.EF.Tasks
@@ -11,7 +10,7 @@ namespace Weapsy.Blog.Domain.Persistence.EF.Tasks
         {
             Mapper.CreateMap<BlogModel, Blog.Blog>();
             Mapper.CreateMap<CategoryModel, Category.Category>();
-            Mapper.CreateMap<PostModel, Post>()
+            Mapper.CreateMap<PostModel, Post.Post>()
                 .ForMember(dst => dst.Categories, opt => opt.Ignore())
                 .ForMember(dst => dst.Tags, opt => opt.Ignore());
             Mapper.CreateMap<CommentModel, Comment.Comment>();

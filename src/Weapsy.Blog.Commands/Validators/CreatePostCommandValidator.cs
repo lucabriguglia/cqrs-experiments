@@ -2,7 +2,7 @@
 using FluentValidation.Results;
 using Weapsy.Blog.Domain;
 using Weapsy.Blog.Domain.Blog;
-using Weapsy.Blog.Domain.Posts;
+using Weapsy.Blog.Domain.Post;
 
 namespace Weapsy.Blog.Commands.Validators
 {

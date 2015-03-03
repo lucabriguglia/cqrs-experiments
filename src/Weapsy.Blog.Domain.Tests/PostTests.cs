@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
-using Weapsy.Blog.Domain.Posts;
-using Weapsy.Blog.Domain.Posts.Events;
-using Weapsy.Blog.Domain.Posts.Exceptions;
+using Weapsy.Blog.Domain.Post.Events;
+using Weapsy.Blog.Domain.Post.Exceptions;
 using Weapsy.Blog.Domain.Tests.Factories;
 
 namespace Weapsy.Blog.Domain.Tests
@@ -22,7 +21,7 @@ namespace Weapsy.Blog.Domain.Tests
 			var categories = new List<Guid> { Guid.NewGuid() };
 			var tags = new List<string> { "tag1", "tag2", "tag3" };
 
-			var post = Post.CreateNew(blogId, title, content, published, categories, tags);
+			var post = Post.Post.CreateNew(blogId, title, content, published, categories, tags);
 
 			Assert.IsFalse(post.Id == Guid.Empty);
 			Assert.AreEqual(blogId, post.BlogId);
@@ -46,7 +45,7 @@ namespace Weapsy.Blog.Domain.Tests
 		}
 
 		[Test]
-        public void Should_throw_an_invalid_operation_exception_when_publish_a_deleted_post()
+        public void Should_throw_post_deleted_exception_when_publish_deleted_post()
         {
 	        var post = PostFactory.CreateNewPost();
             post.GetType().GetProperty("Deleted").SetValue(post, true, null);
@@ -69,6 +68,14 @@ namespace Weapsy.Blog.Domain.Tests
 		}
 
         [Test]
+        public void Should_throw_post_not_published_exception_when_unpublish_an_unblished_post()
+        {
+            var post = PostFactory.CreateNewPost(false);
+
+            Assert.Throws<PostNotPublishedException>(() => post.Unpublish());
+        }
+
+        [Test]
         public void Should_unpublish_post_and_notify()
         {
 			var post = PostFactory.CreateNewPost();
@@ -80,6 +87,15 @@ namespace Weapsy.Blog.Domain.Tests
 			Assert.IsFalse(post.Published);
 			Assert.IsNotNull(@event);
 			Assert.AreEqual(post.Id, @event.Id);
+        }
+
+        [Test]
+        public void Should_throw_post_already_deleted_exception_when_delete_deleted_post()
+        {
+            var post = PostFactory.CreateNewPost();
+            post.GetType().GetProperty("Deleted").SetValue(post, true, null);
+
+            Assert.Throws<PostAlreadyDeletedException>(() => post.Delete());
         }
 
         [Test]
@@ -96,6 +112,14 @@ namespace Weapsy.Blog.Domain.Tests
 			Assert.IsNotNull(@event);
 			Assert.AreEqual(post.Id, @event.Id);
 		}
+
+        [Test]
+        public void Should_throw_post_not_deleted_exception_when_restore_deleted_post()
+        {
+            var post = PostFactory.CreateNewPost();
+
+            Assert.Throws<PostNotDeletedException>(() => post.Restore());
+        }
 
         [Test]
         public void Should_restore_post_and_notify()

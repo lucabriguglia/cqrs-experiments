@@ -1,4 +1,4 @@
-﻿namespace Weapsy.Blog.Domain.Posts.Exceptions
+﻿namespace Weapsy.Blog.Domain.Post.Exceptions
 {
     public class PostAlreadyDeletedException : PostException
     {

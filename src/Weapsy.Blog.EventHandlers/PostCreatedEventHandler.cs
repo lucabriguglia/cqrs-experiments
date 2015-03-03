@@ -1,7 +1,6 @@
 using System;
 using Weapsy.Blog.Domain;
-using Weapsy.Blog.Domain.Posts;
-using Weapsy.Blog.Domain.Posts.Events;
+using Weapsy.Blog.Domain.Post.Events;
 
 namespace Weapsy.Blog.EventHandlers
 {

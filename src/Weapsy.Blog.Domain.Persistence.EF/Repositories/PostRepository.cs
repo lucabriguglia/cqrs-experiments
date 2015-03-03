@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using Weapsy.Blog.Domain.Persistence.EF.MappingExtensions;
 using Weapsy.Blog.Domain.Persistence.EF.Models;
-using Weapsy.Blog.Domain.Posts;
+using Weapsy.Blog.Domain.Post;
 
 namespace Weapsy.Blog.Domain.Persistence.EF.Repositories
 {
@@ -22,7 +22,7 @@ namespace Weapsy.Blog.Domain.Persistence.EF.Repositories
             _postTags = context.Set<PostTagModel>();
         }
 
-        public void Save(Post post)
+        public void Save(Post.Post post)
         {
             using (_context)
             {
@@ -63,7 +63,7 @@ namespace Weapsy.Blog.Domain.Persistence.EF.Repositories
             }
         }
 
-	    public Post GetById(Guid id)
+	    public Post.Post GetById(Guid id)
         {
             return _posts
                 .Include("PostCategories")
@@ -72,7 +72,7 @@ namespace Weapsy.Blog.Domain.Persistence.EF.Repositories
                 .ToDomain();
         }
 
-		public Post GetByBlogIdAndTitle(Guid blogId, string title)
+		public Post.Post GetByBlogIdAndTitle(Guid blogId, string title)
 		{
 			return _posts
 				.Include("PostCategories")

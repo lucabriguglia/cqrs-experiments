@@ -3,7 +3,7 @@ using FluentValidation.TestHelper;
 using Moq;
 using NUnit.Framework;
 using Weapsy.Blog.Commands.Validators;
-using Weapsy.Blog.Domain.Posts;
+using Weapsy.Blog.Domain.Post;
 
 namespace Weapsy.Blog.Commands.Tests.Validators
 {

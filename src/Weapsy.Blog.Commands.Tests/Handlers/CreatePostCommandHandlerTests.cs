@@ -5,7 +5,7 @@ using FluentValidation.Results;
 using Moq;
 using NUnit.Framework;
 using Weapsy.Blog.Commands.Handlers;
-using Weapsy.Blog.Domain.Posts;
+using Weapsy.Blog.Domain.Post;
 
 namespace Weapsy.Blog.Commands.Tests.Handlers
 {
