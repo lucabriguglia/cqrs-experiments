@@ -63,7 +63,7 @@ namespace Weapsy.Blog.Domain.Comment
 
             MarkOld();
 
-			Events.Add(new CommentApprovedEvent());
+			Events.Add(new CommentApprovedEvent(Id));
 		}
 
 		public void Disapprove()
@@ -84,7 +84,7 @@ namespace Weapsy.Blog.Domain.Comment
 
 			MarkOld();
 
-			Events.Add(new CommentDisapprovedEvent());
+			Events.Add(new CommentDisapprovedEvent(Id));
 		}
 
 		public void Delete()

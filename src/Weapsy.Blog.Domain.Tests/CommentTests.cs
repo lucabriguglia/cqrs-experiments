@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using Weapsy.Blog.Domain.Comment.Events;
@@ -26,6 +27,68 @@ namespace Weapsy.Blog.Domain.Tests
             Assert.AreEqual(comment.PostId, @event.PostId);
             Assert.AreEqual(comment.Text, @event.Text);
 		}
+
+        [Test]
+        public void Should_throw_comment_deleted_exception_when_approve_deleted_comment()
+        {
+            var comment = Comment.Comment.CreateNew(Guid.NewGuid(), "My Comment", true);
+            comment.GetType().GetProperty("Deleted").SetValue(comment, true, null);
+
+            Assert.Throws<CommentDeletedException>(() => comment.Approve());
+        }
+
+        [Test]
+        public void Should_throw_comment_already_approved_exception_when_approve_already_approved_comment()
+        {
+            var comment = Comment.Comment.CreateNew(Guid.NewGuid(), "My Comment", true);
+
+            Assert.Throws<CommentAlreadyApprovedException>(() => comment.Approve());
+        }
+
+        [Test]
+        public void Should_approve_comment_and_notify()
+        {
+            var comment = Comment.Comment.CreateNew(Guid.NewGuid(), "My Comment", false);
+
+            comment.Approve();
+
+            var @event = comment.Events.OfType<CommentApprovedEvent>().SingleOrDefault();
+
+            Assert.IsTrue(comment.Approved);
+            Assert.IsNotNull(@event);
+            Assert.AreEqual(comment.Id, @event.Id);
+        }
+
+        [Test]
+        public void Should_throw_comment_deleted_exception_when_disapprove_deleted_comment()
+        {
+            var comment = Comment.Comment.CreateNew(Guid.NewGuid(), "My Comment", true);
+            comment.GetType().GetProperty("Deleted").SetValue(comment, true, null);
+
+            Assert.Throws<CommentDeletedException>(() => comment.Disapprove());
+        }
+
+        [Test]
+        public void Should_throw_comment_not_approved_exception_when_disapprove_not_approved_comment()
+        {
+            var comment = Comment.Comment.CreateNew(Guid.NewGuid(), "My Comment", false);
+
+            Assert.Throws<CommentNotApprovedException>(() => comment.Disapprove());
+        }
+
+        [Test]
+        public void Should_disapprove_comment_and_notify()
+        {
+            var comment = Comment.Comment.CreateNew(Guid.NewGuid(), "My Comment", true);
+
+            comment.Disapprove();
+
+            var @event = comment.Events.OfType<CommentDisapprovedEvent>().SingleOrDefault();
+
+            Assert.IsFalse(comment.Approved);
+            Assert.IsNotNull(@event);
+            Assert.AreEqual(comment.Id, @event.Id);
+        }
 
 		[Test]
 		public void Should_set_title_and_notify_when_change_comment_text()
