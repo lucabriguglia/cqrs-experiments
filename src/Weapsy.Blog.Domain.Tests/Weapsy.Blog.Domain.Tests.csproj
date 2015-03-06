@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlogTests.cs" />
+    <Compile Include="CommentTests.cs" />
     <Compile Include="CategoryTests.cs" />
     <Compile Include="PostTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

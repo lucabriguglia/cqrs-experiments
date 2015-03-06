@@ -26,7 +26,7 @@ namespace Weapsy.Blog.Domain.Comment
             Id = Guid.NewGuid();
             MarkNew();
 
-			Events.Add(new CommentCreatedEvent());
+			Events.Add(new CommentCreatedEvent(PostId, Text, Approved));
 		}
 
         public static Comment CreateNew(Guid postId, string text, bool approved)
@@ -42,7 +42,7 @@ namespace Weapsy.Blog.Domain.Comment
 
             MarkOld();
 
-			Events.Add(new CommentTextChangedEvent());
+			Events.Add(new CommentTextChangedEvent(Id, Text));
 		}
 
 		public void Approve()
@@ -101,7 +101,7 @@ namespace Weapsy.Blog.Domain.Comment
 
 			MarkOld();
 
-			Events.Add(new CommentDeletedEvent());
+			Events.Add(new CommentDeletedEvent(Id));
 		}
 
 		public void Restore()
@@ -117,7 +117,7 @@ namespace Weapsy.Blog.Domain.Comment
 
 			MarkOld();
 
-			Events.Add(new CommentRestoredEvent());
+			Events.Add(new CommentRestoredEvent(Id));
 		}
 
         private void IsCommentCreated()
