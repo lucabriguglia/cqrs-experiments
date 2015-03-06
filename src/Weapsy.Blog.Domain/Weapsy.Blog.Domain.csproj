@@ -42,8 +42,12 @@
     <Compile Include="AggregateRoot.cs" />
     <Compile Include="Blog\Events\BlogCreatedEvent.cs" />
     <Compile Include="Blog\Events\BlogTitleChangedEvent.cs" />
+    <Compile Include="Blog\Events\BlogDeletedEvent.cs" />
+    <Compile Include="Blog\Events\BlogRestoredEvent.cs" />
     <Compile Include="Blog\Exceptions\BlogException.cs" />
     <Compile Include="Blog\Exceptions\BlogNotCreatedException.cs" />
+    <Compile Include="Blog\Exceptions\BlogAlreadyDeletedException.cs" />
+    <Compile Include="Blog\Exceptions\BlogNotDeletedException.cs" />
     <Compile Include="Blog\IBlogRepository.cs" />
     <Compile Include="Category\Category.cs" />
     <Compile Include="Category\Events\CategoryCreatedEvent.cs" />
