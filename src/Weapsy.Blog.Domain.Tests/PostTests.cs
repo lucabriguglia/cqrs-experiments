@@ -4,7 +4,6 @@ using System.Linq;
 using NUnit.Framework;
 using Weapsy.Blog.Domain.Post.Events;
 using Weapsy.Blog.Domain.Post.Exceptions;
-using Weapsy.Blog.Domain.Tests.Factories;
 
 namespace Weapsy.Blog.Domain.Tests
 {
@@ -36,7 +35,7 @@ namespace Weapsy.Blog.Domain.Tests
 		[Test]
 		public void Should_notify_when_post_is_created()
 		{
-			var post = PostFactory.CreateNewPost();
+		    var post = Post.Post.CreateNew(Guid.NewGuid(), "title", "content", true, new List<Guid>(), new List<string>());
 
 			var @event = post.Events.OfType<PostCreatedEvent>().SingleOrDefault();
 
@@ -47,7 +46,7 @@ namespace Weapsy.Blog.Domain.Tests
 		[Test]
         public void Should_throw_post_deleted_exception_when_publish_deleted_post()
         {
-	        var post = PostFactory.CreateNewPost();
+            var post = Post.Post.CreateNew(Guid.NewGuid(), "title", "content", false, new List<Guid>(), new List<string>());
             post.GetType().GetProperty("Deleted").SetValue(post, true, null);
 
             Assert.Throws<PostDeletedException>(() => post.Publish());
@@ -56,7 +55,7 @@ namespace Weapsy.Blog.Domain.Tests
         [Test]
         public void Should_publish_post_and_notify()
         {
-			var post = PostFactory.CreateNewPost(published: false);
+            var post = Post.Post.CreateNew(Guid.NewGuid(), "title", "content", false, new List<Guid>(), new List<string>());
 
 			post.Publish();
 
@@ -70,7 +69,7 @@ namespace Weapsy.Blog.Domain.Tests
         [Test]
         public void Should_throw_post_not_published_exception_when_unpublish_an_unblished_post()
         {
-            var post = PostFactory.CreateNewPost(false);
+            var post = Post.Post.CreateNew(Guid.NewGuid(), "title", "content", false, new List<Guid>(), new List<string>());
 
             Assert.Throws<PostNotPublishedException>(() => post.Unpublish());
         }
@@ -78,7 +77,7 @@ namespace Weapsy.Blog.Domain.Tests
         [Test]
         public void Should_unpublish_post_and_notify()
         {
-			var post = PostFactory.CreateNewPost();
+            var post = Post.Post.CreateNew(Guid.NewGuid(), "title", "content", true, new List<Guid>(), new List<string>());
 
 			post.Unpublish();
 
@@ -92,7 +91,7 @@ namespace Weapsy.Blog.Domain.Tests
         [Test]
         public void Should_throw_post_already_deleted_exception_when_delete_deleted_post()
         {
-            var post = PostFactory.CreateNewPost();
+            var post = Post.Post.CreateNew(Guid.NewGuid(), "title", "content", true, new List<Guid>(), new List<string>());
             post.GetType().GetProperty("Deleted").SetValue(post, true, null);
 
             Assert.Throws<PostAlreadyDeletedException>(() => post.Delete());
@@ -101,7 +100,7 @@ namespace Weapsy.Blog.Domain.Tests
         [Test]
         public void Should_delete_post_and_notify()
         {
-			var post = PostFactory.CreateNewPost();
+            var post = Post.Post.CreateNew(Guid.NewGuid(), "title", "content", true, new List<Guid>(), new List<string>());
 
 			post.Delete();
 
@@ -116,7 +115,7 @@ namespace Weapsy.Blog.Domain.Tests
         [Test]
         public void Should_throw_post_not_deleted_exception_when_restore_deleted_post()
         {
-            var post = PostFactory.CreateNewPost();
+            var post = Post.Post.CreateNew(Guid.NewGuid(), "title", "content", true, new List<Guid>(), new List<string>());
 
             Assert.Throws<PostNotDeletedException>(() => post.Restore());
         }
@@ -124,7 +123,7 @@ namespace Weapsy.Blog.Domain.Tests
         [Test]
         public void Should_restore_post_and_notify()
         {
-			var post = PostFactory.CreateNewPost();
+            var post = Post.Post.CreateNew(Guid.NewGuid(), "title", "content", true, new List<Guid>(), new List<string>());
             post.GetType().GetProperty("Deleted").SetValue(post, true, null);
 
             post.Restore();
