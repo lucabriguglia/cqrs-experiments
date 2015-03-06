@@ -43,6 +43,7 @@
     <Compile Include="Blog\Events\BlogCreatedEvent.cs" />
     <Compile Include="Blog\Events\BlogTitleChangedEvent.cs" />
     <Compile Include="Blog\Exceptions\BlogException.cs" />
+    <Compile Include="Blog\Exceptions\BlogNotCreatedException.cs" />
     <Compile Include="Blog\IBlogRepository.cs" />
     <Compile Include="Category\Category.cs" />
     <Compile Include="Category\Events\CategoryCreatedEvent.cs" />
@@ -60,7 +61,8 @@
     <Compile Include="Comment\Events\CommentDeletedEvent.cs" />
     <Compile Include="Comment\Events\CommentDisapprovedEvent.cs" />
     <Compile Include="Comment\Events\CommentRestoredEvent.cs" />
-    <Compile Include="Comment\Events\CommentUpdatedEvent.cs" />
+    <Compile Include="Comment\Events\CommentTextChangedEvent.cs" />
+    <Compile Include="Comment\Exceptions\CommentNotCreatedException.cs" />
     <Compile Include="Comment\Exceptions\CommentAlreadyApprovedException.cs" />
     <Compile Include="Comment\Exceptions\CommentNotDeletedException.cs" />
     <Compile Include="Comment\Exceptions\CommentNotApprovedException.cs" />

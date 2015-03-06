@@ -34,17 +34,21 @@ namespace Weapsy.Blog.Domain.Comment
             return new Comment(postId, text, approved);
         }
 
-        public void Update(string text)
+        public void ChangeText(string text)
         {
+            IsCommentCreated();
+
             Text = text;
 
             MarkOld();
 
-			Events.Add(new CommentUpdatedEvent());
+			Events.Add(new CommentTextChangedEvent());
 		}
 
 		public void Approve()
         {
+            IsCommentCreated();
+
             if (Deleted)
             {
 	            throw new CommentDeletedException("The Comment is deleted and can not be approved.");
@@ -64,6 +68,8 @@ namespace Weapsy.Blog.Domain.Comment
 
 		public void Disapprove()
 		{
+            IsCommentCreated();
+
 			if (Deleted)
 			{
 				throw new CommentDeletedException("The Comment is deleted and can not be disapproved.");
@@ -83,6 +89,8 @@ namespace Weapsy.Blog.Domain.Comment
 
 		public void Delete()
 		{
+            IsCommentCreated();
+
 			if (Deleted)
 			{
 				throw new CommentAlreadyDeletedException("The Comment is already deleted.");
@@ -98,6 +106,8 @@ namespace Weapsy.Blog.Domain.Comment
 
 		public void Restore()
 		{
+		    IsCommentCreated();
+
 			if (!Deleted)
 			{
 				throw new CommentNotDeletedException("The Comment is not deleted and the restore operation can not be executed.");
@@ -109,5 +119,13 @@ namespace Weapsy.Blog.Domain.Comment
 
 			Events.Add(new CommentRestoredEvent());
 		}
+
+        private void IsCommentCreated()
+        {
+            if (Id == Guid.Empty)
+            {
+                throw new CommentNotCreatedException("The Category is not created and no opperations can be executed on it.");
+            }
+        }
 	}
 }
