@@ -124,7 +124,7 @@ namespace Weapsy.Blog.Domain.Comment
         {
             if (Id == Guid.Empty)
             {
-                throw new CommentNotCreatedException("The Category is not created and no opperations can be executed on it.");
+                throw new CommentNotCreatedException("The Comment is not created and no opperations can be executed on it.");
             }
         }
 	}

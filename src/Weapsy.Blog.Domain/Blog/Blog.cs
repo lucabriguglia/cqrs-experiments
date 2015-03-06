@@ -77,7 +77,7 @@ namespace Weapsy.Blog.Domain.Blog
         {
             if (Id == Guid.Empty)
             {
-                throw new BlogNotCreatedException("The Post is not created and no opperations can be executed on it.");
+                throw new BlogNotCreatedException("The Blog is not created and no opperations can be executed on it.");
             }
         }
     }
