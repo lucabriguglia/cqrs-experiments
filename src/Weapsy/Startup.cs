@@ -14,6 +14,12 @@ using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
 using Weapsy.Models;
 
+#if NET45
+using Autofac;
+using Microsoft.Framework.DependencyInjection.Autofac;
+using Microsoft.Framework.OptionsModel;
+#endif
+
 namespace Weapsy
 {
     public class Startup

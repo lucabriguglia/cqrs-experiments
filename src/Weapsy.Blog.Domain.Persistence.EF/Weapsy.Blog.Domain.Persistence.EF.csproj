@@ -57,6 +57,7 @@
     <Compile Include="MappingExtensions\CommentMapper.cs" />
     <Compile Include="MappingExtensions\CategoryMapper.cs" />
     <Compile Include="MappingExtensions\BlogMapper.cs" />
+    <Compile Include="Repositories\CommentRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\BlogRepository.cs" />
     <Compile Include="Tasks\AutoMapperStartupTask.cs" />
