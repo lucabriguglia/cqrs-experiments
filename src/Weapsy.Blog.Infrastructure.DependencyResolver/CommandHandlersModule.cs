@@ -16,7 +16,7 @@ namespace Weapsy.Blog.Infrastructure.DependencyResolver
 				throw new ArgumentNullException("builder");
 			}
 
-			builder.RegisterAssemblyTypes(typeof(AddCommentCommandHandler).Assembly)
+			builder.RegisterAssemblyTypes(typeof(CreateBlogCommandHandler).Assembly)
 				.As(type => type.GetInterfaces()
 				.Where(interfaceType => interfaceType.IsClosedTypeOf(typeof(ICommandHandler<>)))
 				.Select(interfaceType => new KeyedService("commandHandler", interfaceType)));

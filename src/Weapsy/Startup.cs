@@ -84,17 +84,10 @@ namespace Weapsy
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
 
-
-
-
-
 			// Autofac
 			var builder = new ContainerBuilder();
-
 			builder.RegisterAssemblyModules(AppDomain.CurrentDomain.GetAssemblies());
-
 			IContainer container = builder.Build();
-
 			// Replace the default container
 			app.ApplicationServices = container.Resolve<IServiceProvider>();
 		}
