@@ -3,26 +3,17 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Diagnostics.Entity;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Routing;
-using Microsoft.AspNet.Security.Cookies;
-using Microsoft.Data.Entity;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
 using Weapsy.Models;
-
-#if NET45
 using Autofac;
-using Microsoft.Framework.DependencyInjection.Autofac;
-using Microsoft.Framework.OptionsModel;
-#endif
 
 namespace Weapsy
 {
-    public class Startup
+	public class Startup
     {
         public Startup(IHostingEnvironment env)
         {
@@ -49,11 +40,10 @@ namespace Weapsy
             // Add MVC services to the services container.
             services.AddMvc();
 
-            // Uncomment the following line to add Web API servcies which makes it easier to port Web API 2 controllers.
-            // You need to add Microsoft.AspNet.Mvc.WebApiCompatShim package to project.json
-            // services.AddWebApiConventions();
-
-        }
+			// Uncomment the following line to add Web API servcies which makes it easier to port Web API 2 controllers.
+			// You need to add Microsoft.AspNet.Mvc.WebApiCompatShim package to project.json
+			// services.AddWebApiConventions();
+		}
 
         // Configure is called after ConfigureServices is called.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerfactory)
@@ -93,6 +83,20 @@ namespace Weapsy
                 // Uncomment the following line to add a route for porting Web API 2 controllers.
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
-        }
-    }
+
+
+
+
+
+			// Autofac
+			var builder = new ContainerBuilder();
+
+			builder.RegisterAssemblyModules(AppDomain.CurrentDomain.GetAssemblies());
+
+			IContainer container = builder.Build();
+
+			// Replace the default container
+			app.ApplicationServices = container.Resolve<IServiceProvider>();
+		}
+	}
 }

@@ -43,13 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InjectionModule.cs" />
+    <Compile Include="QueryHandlersModule.cs" />
+    <Compile Include="EventHandlersModule.cs" />
+    <Compile Include="CommandHandlersModule.cs" />
+    <Compile Include="DomainPersistenceModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Weapsy.Blog.Commands\Weapsy.Blog.Commands.csproj">
+      <Project>{faf2d7e5-8475-4ee1-b5e1-9ccd87de849e}</Project>
+      <Name>Weapsy.Blog.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Weapsy.Blog.Domain.Persistence.EF\Weapsy.Blog.Domain.Persistence.EF.csproj">
       <Project>{d5f32926-3606-4e27-bf7a-77d5d78ecc5a}</Project>
       <Name>Weapsy.Blog.Domain.Persistence.EF</Name>
@@ -57,6 +64,10 @@
     <ProjectReference Include="..\Weapsy.Blog.Domain\Weapsy.Blog.Domain.csproj">
       <Project>{771b3d4b-cbee-4a66-a2fd-3d39348d29ce}</Project>
       <Name>Weapsy.Blog.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Weapsy.Blog.Queries\Weapsy.Blog.Queries.csproj">
+      <Project>{dde544ae-b6d4-43bd-a1de-3b5ef67e52b6}</Project>
+      <Name>Weapsy.Blog.Queries</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

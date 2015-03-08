@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../Weapsy.Blog.Queries/Weapsy.Blog.Queries.csproj",
+      "bin": {
+        "assembly": "../../Weapsy.Blog.Queries/obj/{configuration}/Weapsy.Blog.Queries.dll",
+        "pdb": "../../Weapsy.Blog.Queries/obj/{configuration}/Weapsy.Blog.Queries.pdb"
+      }
+    }
+  }
+}

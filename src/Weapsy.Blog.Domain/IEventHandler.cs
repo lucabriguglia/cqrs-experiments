@@ -1,7 +1,9 @@
-﻿namespace Weapsy.Blog.Domain
+﻿using System.Threading.Tasks;
+
+namespace Weapsy.Blog.Domain
 {
     public interface IEventHandler<TEvent> where TEvent : IDomainEvent
     {
-        void Execute(TEvent @event);
+		Task Execute(TEvent @event);
     }
 }

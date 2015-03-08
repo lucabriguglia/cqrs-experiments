@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../Weapsy.Blog.EventHandlers/Weapsy.Blog.EventHandlers.csproj",
+      "bin": {
+        "assembly": "../../Weapsy.Blog.EventHandlers/obj/{configuration}/Weapsy.Blog,EventHandlers.dll",
+        "pdb": "../../Weapsy.Blog.EventHandlers/obj/{configuration}/Weapsy.Blog,EventHandlers.pdb"
+      },
+      "dependencies": {
+        "Weapsy.Blog.Domain": "1.0.0-*"
+      }
+    }
+  }
+}

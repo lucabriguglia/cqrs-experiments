@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../Weapsy.Blog.Domain.Persistence.EF/Weapsy.Blog.Domain.Persistence.EF.csproj",
+      "bin": {
+        "assembly": "../../Weapsy.Blog.Domain.Persistence.EF/obj/{configuration}/Weapsy.Blog.Domain.Persistence.EF.dll",
+        "pdb": "../../Weapsy.Blog.Domain.Persistence.EF/obj/{configuration}/Weapsy.Blog.Domain.Persistence.EF.pdb"
+      },
+      "dependencies": {
+        "AutoMapper": "3.3.1",
+        "EntityFramework": "6.1.2",
+        "Weapsy.Blog.Domain": "1.0.0-*",
+        "Weapsy.Blog.Infrastructure": "1.0.0-*"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../Weapsy.Blog.Commands/Weapsy.Blog.Commands.csproj",
+      "bin": {
+        "assembly": "../../Weapsy.Blog.Commands/obj/{configuration}/Weapsy.Blog.Commands.dll",
+        "pdb": "../../Weapsy.Blog.Commands/obj/{configuration}/Weapsy.Blog.Commands.pdb"
+      },
+      "dependencies": {
+        "FluentValidation": "5.5.0.0",
+        "Weapsy.Blog.Domain": "1.0.0-*"
+      }
+    }
+  }
+}

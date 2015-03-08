@@ -9,7 +9,7 @@ using Weapsy.Blog.Domain.Persistence.EF;
 
 namespace Weapsy.Blog.Infrastructure.DependencyResolver
 {
-	public class InjectionModule : Module
+	public class DomainPersistenceModule : Module
 	{
 		protected override void Load(ContainerBuilder builder)
 		{
