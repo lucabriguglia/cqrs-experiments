@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusModule.cs" />
     <Compile Include="ValidatorsModule.cs" />
     <Compile Include="QueryHandlersModule.cs" />
     <Compile Include="EventHandlersModule.cs" />
@@ -58,6 +59,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Weapsy.Blog.Bus\Weapsy.Blog.Bus.csproj">
+      <Project>{b7c32a2b-3458-4340-b2b3-d260bc53242f}</Project>
+      <Name>Weapsy.Blog.Bus</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Weapsy.Blog.Commands\Weapsy.Blog.Commands.csproj">
       <Project>{faf2d7e5-8475-4ee1-b5e1-9ccd87de849e}</Project>
       <Name>Weapsy.Blog.Commands</Name>

@@ -13,7 +13,8 @@
         "Weapsy.Blog.Domain": "1.0.0-*",
         "Weapsy.Blog.Commands": "1.0.0-*",
         "Weapsy.Blog.Queries": "1.0.0-*",
-        "FluentValidation": "5.5.0.0"
+        "FluentValidation": "5.5.0.0",
+        "Weapsy.Blog.Bus": "1.0.0-*"
       }
     }
   }

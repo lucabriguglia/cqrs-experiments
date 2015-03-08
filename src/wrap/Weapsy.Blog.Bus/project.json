@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../Weapsy.Blog.Bus/Weapsy.Blog.Bus.csproj",
+      "bin": {
+        "assembly": "../../Weapsy.Blog.Bus/obj/{configuration}/Weapsy.Blog.Bus.dll",
+        "pdb": "../../Weapsy.Blog.Bus/obj/{configuration}/Weapsy.Blog.Bus.pdb"
+      },
+      "dependencies": {
+        "Autofac": "3.5.2",
+        "Magnum": "2.1.3",
+        "MassTransit": "2.9.9",
+        "Newtonsoft.Json": "6.0.6",
+        "Weapsy.Blog.Commands": "1.0.0-*",
+        "Weapsy.Blog.Domain": "1.0.0-*",
+        "Weapsy.Blog.Queries": "1.0.0-*"
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ using Weapsy.Blog.Domain;
 
 namespace Weapsy.Blog.Bus
 {
-	public class EventPubisher : IEventPublisher<IDomainEvent>
+	public class EventPublisher : IEventPublisher<IDomainEvent>
 	{
 		public void Publish(IDomainEvent @event)
 		{

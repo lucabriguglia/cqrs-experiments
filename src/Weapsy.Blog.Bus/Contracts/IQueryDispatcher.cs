@@ -3,9 +3,8 @@ using Weapsy.Blog.Queries.Contracts;
 
 namespace Weapsy.Blog.Bus.Contracts
 {
-	public interface IQueryDispatcher<TQuery, TResult> where TQuery : IQuery
+	public interface IQueryDispatcher
 	{
-		TResult Dispatch(TQuery query);
-		Task<TResult> DispatchAsync(TQuery query);
+		Task<TResult> Dispatch<TQuery, TResult>(TQuery query) where TQuery : IQuery;
 	}
 }

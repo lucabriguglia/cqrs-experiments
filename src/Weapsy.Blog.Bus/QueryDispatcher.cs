@@ -6,16 +6,13 @@ using Weapsy.Blog.Queries.Handlers.Contracts;
 
 namespace Weapsy.Blog.Bus
 {
-	public class QueryDispatcher : IQueryDispatcher<IQuery, object>
+	public class QueryDispatcher : IQueryDispatcher
 	{
-		public object Dispatch(IQuery query)
+		public async Task<TResult> Dispatch<TQuery, TResult>(TQuery query) where TQuery : IQuery
 		{
-			throw new NotImplementedException();
-		}
-
-		public Task<object> DispatchAsync(IQuery query)
-		{
-			throw new NotImplementedException();
+			return default(TResult);
+			//var handler = _kernel.Resolve<IQueryHandler<TQuery, TResult>>();
+			//return await handler.Retrieve(query);
 		}
 	}
 }
