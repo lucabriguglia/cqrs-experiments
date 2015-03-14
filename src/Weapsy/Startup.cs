@@ -90,6 +90,6 @@ namespace Weapsy
 			IContainer container = builder.Build();
 			// Replace the default container
 			app.ApplicationServices = container.Resolve<IServiceProvider>();
-		}
+        }
 	}
 }

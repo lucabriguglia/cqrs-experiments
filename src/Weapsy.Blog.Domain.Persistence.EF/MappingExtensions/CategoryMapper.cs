@@ -1,15 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 using Weapsy.Blog.Domain.Persistence.EF.Models;
 
 namespace Weapsy.Blog.Domain.Persistence.EF.MappingExtensions
 {
-    public static class CategoryMapper
+	public static class CategoryMapper
     {
         public static Category.Category ToDomain(this CategoryModel model)
         {
-            return Mapper.Map<CategoryModel, Category.Category>(model);
+			var category = new Category.Category();
+
+			category.GetType().GetProperty("BlogId").SetValue(category, model.BlogId, null);
+			category.GetType().GetProperty("Id").SetValue(category, model.Id, null);
+			category.GetType().GetProperty("Title").SetValue(category, model.Title, null);
+
+			return category;
         }
 
         public static List<Category.Category> ToDomain(this List<CategoryModel> models)

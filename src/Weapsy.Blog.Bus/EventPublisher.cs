@@ -5,14 +5,14 @@ using Weapsy.Blog.Domain;
 
 namespace Weapsy.Blog.Bus
 {
-	public class EventPublisher : IEventPublisher<IDomainEvent>
+	public class EventPublisher : IEventPublisher
 	{
-		public void Publish(IDomainEvent @event)
+		public void Publish<TEvent>(TEvent @event) where TEvent : IDomainEvent
 		{
 			throw new NotImplementedException();
 		}
 
-		public Task PublishAsync(IDomainEvent @event)
+		public Task PublishAsync<TEvent>(TEvent @event) where TEvent : IDomainEvent
 		{
 			return new TaskFactory().StartNew(() => Publish(@event));
 		}

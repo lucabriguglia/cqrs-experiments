@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 using Weapsy.Blog.Domain.Persistence.EF.Models;
 
 namespace Weapsy.Blog.Domain.Persistence.EF.MappingExtensions
@@ -9,7 +8,14 @@ namespace Weapsy.Blog.Domain.Persistence.EF.MappingExtensions
     {
         public static Comment.Comment ToDomain(this CommentModel model)
         {
-            return Mapper.Map<CommentModel, Comment.Comment>(model);
+			var comment = new Comment.Comment();
+
+			comment.GetType().GetProperty("PostId").SetValue(comment, model.PostId, null);
+			comment.GetType().GetProperty("Id").SetValue(comment, model.Id, null);
+			comment.GetType().GetProperty("Text").SetValue(comment, model.Text, null);
+			comment.GetType().GetProperty("Approved").SetValue(comment, model.Approved, null);
+
+			return comment;
         }
 
         public static List<Comment.Comment> ToDomain(this List<CommentModel> models)

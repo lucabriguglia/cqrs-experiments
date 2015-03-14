@@ -18,11 +18,11 @@ namespace Weapsy.Blog.Commands.Handlers
 
         public void Handle(CreatePostCommand command)
         {
-            var result = _validator.Validate(command);
+            var validationResult = _validator.Validate(command);
 
-            if (!result.IsValid)
+            if (!validationResult.IsValid)
             {
-                var failures = result.Errors;
+                var failures = validationResult.Errors;
                 throw new InvalidOperationException();
             }
 

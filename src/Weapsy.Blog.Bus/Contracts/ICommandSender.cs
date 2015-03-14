@@ -3,9 +3,9 @@ using Weapsy.Blog.Commands.Contracts;
 
 namespace Weapsy.Blog.Bus.Contracts
 {
-	public interface ICommandSender<T> where T : ICommand
+	public interface ICommandSender
 	{
-		void Send(T command);
-		Task SendAsync(T command);
+		void Send<TCommand>(TCommand command) where TCommand : ICommand;
+		Task SendAsync<TCommand>(TCommand command) where TCommand : ICommand;
 	}
 }

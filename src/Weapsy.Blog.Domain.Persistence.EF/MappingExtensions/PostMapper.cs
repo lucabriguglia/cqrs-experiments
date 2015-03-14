@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 using Weapsy.Blog.Domain.Persistence.EF.Models;
 
 namespace Weapsy.Blog.Domain.Persistence.EF.MappingExtensions
@@ -9,9 +8,16 @@ namespace Weapsy.Blog.Domain.Persistence.EF.MappingExtensions
     {
         public static Post.Post ToDomain(this PostModel model)
         {
-            var post = Mapper.Map<PostModel, Post.Post>(model);
+			var post = new Post.Post();
 
-            foreach (var postCategoryModel in model.PostCategories)
+			post.GetType().GetProperty("BlogId").SetValue(post, model.BlogId, null);
+			post.GetType().GetProperty("Id").SetValue(post, model.Id, null);
+			post.GetType().GetProperty("Title").SetValue(post, model.Title, null);
+			post.GetType().GetProperty("Content").SetValue(post, model.Content, null);
+			post.GetType().GetProperty("Deleted").SetValue(post, model.Deleted, null);
+			post.GetType().GetProperty("Published").SetValue(post, model.Published, null);
+
+			foreach (var postCategoryModel in model.PostCategories)
             {
                 post.Categories.Add(postCategoryModel.CategoryId);
             }

@@ -3,9 +3,9 @@ using Weapsy.Blog.Domain;
 
 namespace Weapsy.Blog.Bus.Contracts
 {
-	public interface IEventPublisher<T> where T : IDomainEvent
+	public interface IEventPublisher
 	{
-		void Publish(T @event);
-		Task PublishAsync(T @event);
+		void Publish<TEvent>(TEvent @event) where TEvent : IDomainEvent;
+		Task PublishAsync<TEvent>(TEvent @event) where TEvent : IDomainEvent;
 	}
 }

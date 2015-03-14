@@ -2,9 +2,6 @@
 using Autofac;
 using Weapsy.Blog.Bus;
 using Weapsy.Blog.Bus.Contracts;
-using Weapsy.Blog.Commands.Contracts;
-using Weapsy.Blog.Domain;
-using Weapsy.Blog.Queries.Contracts;
 
 namespace Weapsy.Blog.Infrastructure.DependencyResolver
 {
@@ -17,8 +14,8 @@ namespace Weapsy.Blog.Infrastructure.DependencyResolver
 				throw new ArgumentNullException("builder");
 			}
 
-			builder.RegisterType<CommandSender>().As<ICommandSender<ICommand>>();
-			builder.RegisterType<EventPublisher>().As<IEventPublisher<IDomainEvent>>();
+			builder.RegisterType<CommandSender>().As<ICommandSender>();
+			builder.RegisterType<EventPublisher>().As<IEventPublisher>();
 			builder.RegisterType<QueryDispatcher>().As<IQueryDispatcher>();
 		}
 	}
