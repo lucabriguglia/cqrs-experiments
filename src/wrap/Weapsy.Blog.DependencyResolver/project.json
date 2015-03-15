@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../Weapsy.Blog.DependencyResolver/Weapsy.Blog.DependencyResolver.csproj",
+      "bin": {
+        "assembly": "../../Weapsy.Blog.DependencyResolver/obj/{configuration}/Weapsy.Blog.DependencyResolver.dll",
+        "pdb": "../../Weapsy.Blog.DependencyResolver/obj/{configuration}/Weapsy.Blog.DependencyResolver.pdb"
+      },
+      "dependencies": {
+        "EntityFramework": "6.1.3",
+        "Microsoft.Framework.ConfigurationModel": "1.0.0-beta3",
+        "Microsoft.Framework.DependencyInjection": "1.0.0-beta3",
+        "Weapsy.Blog.Bus": "1.0.0-*",
+        "Weapsy.Blog.Commands": "1.0.0-*",
+        "Weapsy.Blog.Domain.Persistence.EF": "1.0.0-*",
+        "Weapsy.Blog.Domain": "1.0.0-*",
+        "Weapsy.Blog,EventHandlers": "1.0.0-*",
+        "Weapsy.Blog.Queries": "1.0.0-*"
+      }
+    }
+  }
+}

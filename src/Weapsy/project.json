@@ -19,7 +19,8 @@
 		"Microsoft.Framework.Logging": "1.0.0-beta3",
 		"Microsoft.Framework.Logging.Console": "1.0.0-beta3",
 		"Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3",
-		"Autofac": "3.5.2.0"
+		"Autofac": "3.5.2.0",
+		"Microsoft.Framework.DependencyInjection": "1.0.0.0-beta3"
 	},
 	"commands": {
 		/* Change the port number when you are self hosting this application */
@@ -30,9 +31,12 @@
 	"frameworks": {
 		"aspnet50": {
 			"dependencies": {
-				"Weapsy.Blog.Infrastructure.DependencyResolver": "1.0.0-*"
+				"Weapsy.Blog.Bus": "1.0.0-*",
+				"Weapsy.Blog.Commands": "1.0.0-*",
+				"Weapsy.Blog.Queries": "1.0.0-*",
+				"Weapsy.Blog.DependencyResolver": "1.0.0-*"
 			}
-		}/*,
+		} /*,
 		"aspnetcore50": { }*/
 	},
 	"exclude": [

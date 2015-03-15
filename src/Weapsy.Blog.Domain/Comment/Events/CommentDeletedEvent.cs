@@ -2,13 +2,13 @@
 
 namespace Weapsy.Blog.Domain.Comment.Events
 {
-    public class CommentDeletedEvent : IDomainEvent
-    {
-        public Guid Id { get; private set; }
+	public class CommentDeletedEvent : IDomainEvent
+	{
+		public Guid Id { get; private set; }
 
-        public CommentDeletedEvent(Guid id)
-        {
-            Id = id;
-        }
-    }
+		public CommentDeletedEvent(Guid id)
+		{
+			Id = id;
+		}
+	}
 }

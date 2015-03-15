@@ -3,15 +3,15 @@ using Weapsy.Blog.Domain.Persistence.EF.Models;
 
 namespace Weapsy.Blog.Domain.Persistence.EF.ModelConfigurations
 {
-    public class BlogModelConfiguration : EntityTypeConfiguration<BlogModel>
-    {
-        public BlogModelConfiguration()
-        {
-            ToTable("Blog");
+	public class BlogModelConfiguration : EntityTypeConfiguration<BlogModel>
+	{
+		public BlogModelConfiguration()
+		{
+			ToTable("Blog");
 
-            HasKey(a => a.Id);
+			HasKey(a => a.Id);
 
-            Property(a => a.Title).IsRequired().HasMaxLength(100);
-        }
-    }
+			Property(a => a.Title).IsRequired().HasMaxLength(100);
+		}
+	}
 }

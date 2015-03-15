@@ -3,13 +3,13 @@ using Weapsy.Blog.Commands.Contracts;
 
 namespace Weapsy.Blog.Commands
 {
-    public class PublishPostCommand : ICommand
-    {
-        public Guid Id { get; private set; }
+	public class PublishPostCommand : ICommand
+	{
+		public Guid Id { get; private set; }
 
-        public PublishPostCommand(Guid id)
-        {
-            Id = id;
-        }
-    }
+		public PublishPostCommand(Guid id)
+		{
+			Id = id;
+		}
+	}
 }

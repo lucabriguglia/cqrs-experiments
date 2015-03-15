@@ -2,8 +2,8 @@
 
 namespace Weapsy.Blog.Domain
 {
-    public interface IAggregateRoot
-    {
+	public interface IAggregateRoot
+	{
 		ICollection<IDomainEvent> Events { get; }
 	}
 }

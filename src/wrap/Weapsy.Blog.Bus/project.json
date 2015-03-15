@@ -14,7 +14,9 @@
         "Newtonsoft.Json": "6.0.6",
         "Weapsy.Blog.Commands": "1.0.0-*",
         "Weapsy.Blog.Domain": "1.0.0-*",
-        "Weapsy.Blog.Queries": "1.0.0-*"
+        "Weapsy.Blog.Queries": "1.0.0-*",
+        "Microsoft.Framework.ConfigurationModel": "1.0.0-beta3",
+        "Microsoft.Framework.DependencyInjection": "1.0.0-beta3"
       }
     }
   }

@@ -4,24 +4,24 @@ using Weapsy.Blog.Domain.Post;
 
 namespace Weapsy.Blog.Commands.Validators
 {
-    public class AddCommentCommandValidator : AbstractValidator<AddCommentCommand>
-    {
-        private readonly IPostRepository _postRepository;
+	public class AddCommentCommandValidator : AbstractValidator<AddCommentCommand>
+	{
+		private readonly IPostRepository _postRepository;
 
-        public AddCommentCommandValidator(IPostRepository postRepository)
-        {
-            _postRepository = postRepository;
+		public AddCommentCommandValidator(IPostRepository postRepository)
+		{
+			_postRepository = postRepository;
 
-            RuleFor(c => c.Text).NotEmpty();
+			RuleFor(c => c.Text).NotEmpty();
 
 			Custom(c =>
 			{
-                var post = _postRepository.GetById(c.PostId);
+				var post = _postRepository.GetById(c.PostId);
 
 				return post == null
-					? new ValidationFailure("PostId", "Requested post doesn't exist.") {CustomState = "CustomState"}
+					? new ValidationFailure("PostId", "Requested post doesn't exist.") { CustomState = "CustomState" }
 					: null;
 			});
-        }
-    }
+		}
+	}
 }

@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRepository.cs" />
     <Compile Include="MappingExtensions\CommentMapper.cs" />
     <Compile Include="MappingExtensions\CategoryMapper.cs" />
     <Compile Include="MappingExtensions\BlogMapper.cs" />

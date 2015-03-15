@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Weapsy.Blog.Domain
 {
-    public class AggregateRoot : IAggregateRoot
-    {
-        public Guid Id { get; protected set; }
-        public bool New { get; protected set; }
+	public class AggregateRoot : IAggregateRoot
+	{
+		public Guid Id { get; protected set; }
+		public bool New { get; protected set; }
 
 		private ICollection<IDomainEvent> _events;
 		public ICollection<IDomainEvent> Events
@@ -16,13 +16,13 @@ namespace Weapsy.Blog.Domain
 		}
 
 		protected void MarkNew()
-        {
-            New = true;
-        }
+		{
+			New = true;
+		}
 
-        protected void MarkOld()
-        {
-            New = false;
-        }
-    }
+		protected void MarkOld()
+		{
+			New = false;
+		}
+	}
 }

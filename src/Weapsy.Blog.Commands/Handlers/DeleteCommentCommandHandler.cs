@@ -4,22 +4,22 @@ using Weapsy.Blog.Domain.Comment;
 
 namespace Weapsy.Blog.Commands.Handlers
 {
-    public class DeleteCommentCommandHandler : ICommandHandler<DeleteCommentCommand>
-    {
-        private readonly IRepository<Comment> _commentRepository;
+	public class DeleteCommentCommandHandler : ICommandHandler<DeleteCommentCommand>
+	{
+		private readonly IRepository<Comment> _commentRepository;
 
-        public DeleteCommentCommandHandler(IRepository<Comment> commentRepository)
-        {
-            _commentRepository = commentRepository;
-        }
+		public DeleteCommentCommandHandler(IRepository<Comment> commentRepository)
+		{
+			_commentRepository = commentRepository;
+		}
 
-        public void Handle(DeleteCommentCommand command)
-        {
-            var post = _commentRepository.GetById(command.Id);
+		public void Handle(DeleteCommentCommand command)
+		{
+			var post = _commentRepository.GetById(command.Id);
 
-            post.Delete();
+			post.Delete();
 
-            _commentRepository.Save(post);
-        }
-    }
+			_commentRepository.Save(post);
+		}
+	}
 }

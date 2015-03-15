@@ -2,8 +2,8 @@
 
 namespace Weapsy.Blog.Domain.Post.Events
 {
-    public class PostDeletedEvent : IDomainEvent
-    {
+	public class PostDeletedEvent : IDomainEvent
+	{
 		public Guid Id { get; private set; }
 
 		public PostDeletedEvent(Guid id)

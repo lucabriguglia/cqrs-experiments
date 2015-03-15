@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNet.Mvc;
+using Weapsy.Blog.Bus.Contracts;
 
 namespace Weapsy.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+		private readonly ICommandSender _commandSender;
+
+		public HomeController(ICommandSender commandSender)
+		{
+			_commandSender = commandSender;
+		}
+
+		public IActionResult Index()
         {
             return View();
         }

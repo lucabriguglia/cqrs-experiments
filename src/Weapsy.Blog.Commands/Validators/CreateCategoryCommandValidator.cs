@@ -4,15 +4,15 @@ using Weapsy.Blog.Domain.Category;
 
 namespace Weapsy.Blog.Commands.Validators
 {
-    public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
-    {
-        private readonly ICategoryRepository _categoryRepository;
+	public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
+	{
+		private readonly ICategoryRepository _categoryRepository;
 
-        public CreateCategoryCommandValidator(ICategoryRepository categoryRepository)
-        {
+		public CreateCategoryCommandValidator(ICategoryRepository categoryRepository)
+		{
 			_categoryRepository = categoryRepository;
 
-            RuleFor(c => c.Title).NotEmpty();
+			RuleFor(c => c.Title).NotEmpty();
 
 			Custom(c =>
 			{
@@ -23,5 +23,5 @@ namespace Weapsy.Blog.Commands.Validators
 					: null;
 			});
 		}
-    }
+	}
 }

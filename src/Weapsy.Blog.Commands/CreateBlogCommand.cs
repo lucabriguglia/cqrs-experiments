@@ -3,13 +3,13 @@ using Weapsy.Blog.Commands.Contracts;
 
 namespace Weapsy.Blog.Commands
 {
-    public class CreateBlogCommand : ICommand
-    {
-        public string Title { get; private set; }
+	public class CreateBlogCommand : ICommand
+	{
+		public string Title { get; private set; }
 
-        public CreateBlogCommand(string title)
-        {
-            Title = title;
-        }
-    }
+		public CreateBlogCommand(string title)
+		{
+			Title = title;
+		}
+	}
 }

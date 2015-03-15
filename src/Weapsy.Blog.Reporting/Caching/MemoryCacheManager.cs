@@ -5,71 +5,71 @@ using System.Text.RegularExpressions;
 
 namespace Weapsy.Blog.Reporting.Caching
 {
-    public class MemoryCacheManager : ICacheManager
-    {
-        protected ObjectCache Cache
-        {
-            get { return MemoryCache.Default; }
-        }
+	public class MemoryCacheManager : ICacheManager
+	{
+		protected ObjectCache Cache
+		{
+			get { return MemoryCache.Default; }
+		}
 
-        public T Get<T>(string key)
-        {
-            return (T)Cache[key];
-        }
+		public T Get<T>(string key)
+		{
+			return (T)Cache[key];
+		}
 
-        public void Set(string key, object data, int cacheTime)
-        {
-            if (data == null)
-            {
-                return;
-            }
-            
-            var policy = new CacheItemPolicy
-            {
-                AbsoluteExpiration = DateTime.Now + TimeSpan.FromSeconds(cacheTime),
-            };
+		public void Set(string key, object data, int cacheTime)
+		{
+			if (data == null)
+			{
+				return;
+			}
 
-            Cache.Add(new CacheItem(key, data), policy);
-        }
+			var policy = new CacheItemPolicy
+			{
+				AbsoluteExpiration = DateTime.Now + TimeSpan.FromSeconds(cacheTime),
+			};
 
-        public bool IsSet(string key)
-        {
-            return (Cache.Contains(key));
-        }
+			Cache.Add(new CacheItem(key, data), policy);
+		}
 
-        public void Remove(string key)
-        {
-            if (IsSet(key))
-            {
-                Cache.Remove(key);
-            }
-        }
+		public bool IsSet(string key)
+		{
+			return (Cache.Contains(key));
+		}
 
-        public void RemoveByPattern(string pattern)
-        {
-            var regex = new Regex(pattern, RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.IgnoreCase);
-            var keysToRemove = new List<String>();
+		public void Remove(string key)
+		{
+			if (IsSet(key))
+			{
+				Cache.Remove(key);
+			}
+		}
 
-            foreach (var item in Cache)
-            {
-                if (regex.IsMatch(item.Key))
-                {
-                    keysToRemove.Add(item.Key);
-                }
-            }
+		public void RemoveByPattern(string pattern)
+		{
+			var regex = new Regex(pattern, RegexOptions.Singleline | RegexOptions.Compiled | RegexOptions.IgnoreCase);
+			var keysToRemove = new List<String>();
 
-            foreach (string key in keysToRemove)
-            {
-                Remove(key);
-            }
-        }
+			foreach (var item in Cache)
+			{
+				if (regex.IsMatch(item.Key))
+				{
+					keysToRemove.Add(item.Key);
+				}
+			}
 
-        public void Clear()
-        {
-            foreach (var item in Cache)
-            {
-                Remove(item.Key);
-            }
-        }
-    }
+			foreach (string key in keysToRemove)
+			{
+				Remove(key);
+			}
+		}
+
+		public void Clear()
+		{
+			foreach (var item in Cache)
+			{
+				Remove(item.Key);
+			}
+		}
+	}
 }

@@ -2,8 +2,8 @@
 
 namespace Weapsy.Blog.Domain.Blog.Events
 {
-    public class BlogTitleChangedEvent : IDomainEvent
-    {
+	public class BlogTitleChangedEvent : IDomainEvent
+	{
 		public Guid Id { get; private set; }
 		public string Title { get; private set; }
 

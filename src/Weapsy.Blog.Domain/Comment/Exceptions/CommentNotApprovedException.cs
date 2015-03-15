@@ -1,9 +1,9 @@
 ﻿namespace Weapsy.Blog.Domain.Comment.Exceptions
 {
-    public class CommentNotApprovedException : CommentException
+	public class CommentNotApprovedException : CommentException
 	{
-        public CommentNotApprovedException(string message) : base(message)
-        {
-        }
-    }
+		public CommentNotApprovedException(string message) : base(message)
+		{
+		}
+	}
 }

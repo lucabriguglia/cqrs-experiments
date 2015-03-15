@@ -1,6 +1,6 @@
 ﻿namespace Weapsy.Blog.Domain.Persistence.EF
 {
-    public interface IEntity
-    {
-    }
+	public interface IEntity
+	{
+	}
 }

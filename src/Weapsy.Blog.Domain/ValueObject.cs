@@ -1,7 +1,7 @@
 ﻿namespace Weapsy.Blog.Domain
 {
-    public abstract class ValueObject
-    {
-        //TODO: override equals
-    }
+	public abstract class ValueObject
+	{
+		//TODO: override equals
+	}
 }
