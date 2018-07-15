@@ -1,2 +1,2 @@
 # CQRS Experiments
-This repository is no longer updated, please look at https://github.com/Weapsy/Weapsy.CQRS.
+This repository is no longer updated, check out https://github.com/OpenCQRS/OpenCQRS.
